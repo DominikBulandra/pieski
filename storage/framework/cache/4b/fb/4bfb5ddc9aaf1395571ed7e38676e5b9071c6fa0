@@ -1,0 +1,38 @@
+1617183154a:1:{s:14:"main-menu.yaml";a:7:{s:8:"fileName";s:14:"main-menu.yaml";s:7:"content";s:773:"name: 'Main Menu'
+items:
+    -
+        title: Pieski
+        type: cms-page
+        code: ''
+        reference: pieski
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'O mnie'
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: messages
+        reference: messages
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Wiadomości
+        nesting: '1'
+        type: static-page
+        url: ''
+        code: content
+        reference: content
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+";s:5:"mtime";i:1617177047;s:6:"markup";N;s:4:"code";N;s:4:"name";N;s:5:"items";a:0:{}}}

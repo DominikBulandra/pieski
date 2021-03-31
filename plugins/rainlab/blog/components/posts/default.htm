@@ -1,0 +1,54 @@
+{% set posts = __SELF__.posts %}
+
+
+    {% for post in posts %}
+ 
+            <div class="jumbotron p-3 p-md-5 text-white rounded bg">
+<div class="row">
+        <div class="col-md-6 px-0">
+          <h1 class="display-4 font-italic">{{ post.title }}</h1>
+          <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
+          <p class="lead mb-0"><a href="{{ post.url }}" class="text-white font-weight-bold">Czytaj dalej...</a></p>
+           <p class="info">
+                {% if post.categories.count %}
+                    {% set categoryLinks = post.categories | map(c => "<a href=\"#{c.url}\">#{c.name}</a>") | join(', ') %}
+
+                    {{ 'rainlab.blog::lang.post.posted_byline' | trans({
+                        date: post.published_at | date('rainlab.blog::lang.post.date_format' | trans),
+                        categories: categoryLinks
+                    }) }}
+                {% else %}
+                    {{ 'rainlab.blog::lang.post.posted_byline_no_categories' | trans({
+                        date: post.published_at | date('rainlab.blog::lang.post.date_format' | trans)
+                    }) }}
+                {% endif %}
+
+            </p>
+          {{ post.summary | raw }}
+        </div>
+      
+  </div>
+</div>
+      
+    {% else %}
+       {{ __SELF__.noPostsMessage }}
+    {% endfor %}
+
+
+{% if posts.lastPage > 1 %}
+    <ul class="pagination">
+        {% if posts.currentPage > 1 %}
+            <li><a href="{{ this.page.baseFileName | page({ (__SELF__.pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..posts.lastPage %}
+            <li class="{{ posts.currentPage == page ? 'active' : null }}">
+                <a href="{{ this.page.baseFileName | page({ (__SELF__.pageParam): page }) }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+
+        {% if posts.lastPage > posts.currentPage %}
+            <li><a href="{{ this.page.baseFileName | page({ (__SELF__.pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
+{% endif %}

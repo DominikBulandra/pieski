@@ -1,0 +1,19 @@
+name: 'Strona z pieskami'
+description: 'A sample multi-lingual theme for translated content.'
+author: 'Dominik, Tomek'
+homepage: 'http://octobercms.com'
+code: Bonjour
+require:
+    - RainLab.Pages
+    - RainLab.Translate
+translate:
+    en:
+        site.name: Bonjour
+        nav.home: Home
+        nav.languages: Languages
+        nav.messages: Messages
+        nav.content: Content
+        nav.video: Video
+        title.languages: 'Available Languages'
+        title.messages: 'Translated Messages'
+        title.video: 'Screencast Video'

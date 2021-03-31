@@ -1,0 +1,37 @@
+name: 'Main Menu'
+items:
+    -
+        title: Pieski
+        type: cms-page
+        code: ''
+        reference: pieski
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'O mnie'
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: messages
+        reference: messages
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Wiadomości
+        nesting: '1'
+        type: static-page
+        url: ''
+        code: content
+        reference: content
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
